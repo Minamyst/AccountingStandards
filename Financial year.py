@@ -16,8 +16,7 @@ class FinancialYear:
         return start_date, end_date
 
 
-start_year_input = input("Enter the current year of financial year: ")
-start_year = int(start_year_input)
+from Inputs import InputTaken
 
 financial_year = FinancialYear(start_year)
 
