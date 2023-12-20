@@ -16,7 +16,15 @@ class FinancialYear:
         return start_date, end_date
 
 
-from Inputs import InputTaken
+# financial_year.py
+
+from Inputs import TakeInps  
+
+# Creating an instance of TakeInps
+trialer = TakeInps(start_year=None, AS2=None, AS10=None, AS16=None, AS26=None, AS28=None, AS19=None)
+
+# Calling the get_inputs_start_year method
+start_year = trialer.get_inputs_start_year()
 
 financial_year = FinancialYear(start_year)
 
