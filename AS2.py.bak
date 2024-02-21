@@ -1,0 +1,30 @@
+class AS_2:
+    def __init__(self, cost, MarVal):
+        self.cost = cost
+        self.MarVal = MarVal
+
+    def get_cost(self):
+        return self.cost
+
+    def get_marval(self):
+        return self.MarVal
+
+
+from Inputs import TakeInps  
+
+# Creating an instance of TakeInps
+trialer = TakeInps(start_year=None, MarVal=None, cost=None, AS10=None, AS16=None, AS26=None, AS28=None, AS19=None)
+
+# Getting the cost and market value from TakeInps
+cost = trialer.calculate_value()
+MarVal = trialer.calculate_value(cost, MarVal)  # Pass the cost and MarVal arguments here
+
+# Creating instances of AS_2 with cost and MarVal
+as2_cost = AS_2(cost=cost, MarVal=None)
+as2_marval = AS_2(cost=None, MarVal=MarVal)
+
+# Comparing the values
+if as2_marval.get_marval() < as2_cost.get_cost():
+    print("Inventory cost as per AS 2 is:", as2_marval.get_marval())
+else:
+    print("Inventory value as per AS 2 is:", as2_cost.get_cost())

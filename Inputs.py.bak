@@ -2,12 +2,11 @@
 
 
 from datetime import datetime, date, timedelta
-import sys
 
 class TakeInps:
     def __init__(self, start_year, cost, MarVal, AS10, AS16, AS26, AS28, AS19):
-        self.cost =cost
-        self.MarVal=MarVal
+        self.cost = cost
+        self.MarVal= MarVal
         self.start_year = start_year
         self.AS10 = AS10
         self.AS16 = AS16
@@ -24,13 +23,18 @@ class TakeInps:
         met_1 = input("Enter Method of Valuation (LIFO, FIFO, or average): ")
         if met_1.lower() == "lifo":
             print("Method not accepted under AS 2")
-            sys.exit()
+        elif met_1.lower() == "fifo":
+            fifo_input = input("Please provide the FIFO-specific input: ")
+            self.cost = fifo_input  # Update cost for FIFO
         else:
-            cost = float(input("Enter the cost: "))
-            MarVal = float(input("Enter Market Value: "))
-            self.cost = cost  # Update the cost attribute of the class instance
-            self.MarVal = MarVal  # Update the MarVal attribute of the class instance
-        return cost, MarVal
+            avg_input = input("Please provide the average-specific input: ")
+            self.cost = avg_input  # Update cost for average
+        return cost
+        
+        # Prompt user for Market Value
+        self.MarVal = float(input("Enter Market Value: "))
+        return MarVal
+
 
         
 
